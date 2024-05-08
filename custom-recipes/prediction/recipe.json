@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "label": "Prediction",
+        "description": "",
+        "icon": "icon-magic"
+    },
+    "kind": "PYTHON",
+    "selectableFromDataset": "input_A_role",
+    "inputRoles": [
+        {
+            "name": "input_A_role",
+            "label": "input A displayed name",
+            "description": "what input A means",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "main_output",
+            "label": "main output displayed name",
+            "description": "what main output means",
+            "arity": "UNARY",
+            "required": false,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "prompt_source",
+            "label": "Prompt source",
+            "type": "SELECT",
+            "description": "",
+            "selectChoices": [
+                {
+                    "value": "column",
+                    "label": "Column"
+                },
+                {
+                    "value": "text",
+                    "label": "Text box"
+                }
+            ]
+        },
+        {
+            "name": "prompt",
+            "label": "Prompt template",
+            "type": "TEXTAREA",
+            "description": "",
+            "visibilityCondition": "model.prompt_source=='text'"
+        },
+        {
+            "name": "prompt_column",
+            "label": "Prompt column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role",
+            "visibilityCondition": "model.prompt_source=='column'"
+        },
+        {
+            "name": "display_advanced_parameters",
+            "label": " ",
+            "description": "Advanced parameters",
+            "type": "BOOLEAN"
+        },{
+            "name": "server_url",
+            "label": "URL to Ollama instance",
+            "type": "STRING",
+            "description": "",
+            "defaultValue": "http://localhost:11434",
+            "visibilityCondition": "model.display_advanced_parameters"
+        },{
+            "name": "model_name",
+            "label": "Model name",
+            "type": "STRING",
+            "description": "",
+            "defaultValue": "mistral",
+            "visibilityCondition": "model.display_advanced_parameters"
+        }
+    ],
+    "resourceKeys": []
+}
