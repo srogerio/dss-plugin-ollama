@@ -5,6 +5,7 @@
         "icon": "icon-magic"
     },
     "kind": "PYTHON",
+    "paramsPythonSetup": "browse_models.py",
     "selectableFromDataset": "input_A_role",
     "inputRoles": [
         {
@@ -60,23 +61,61 @@
             "visibilityCondition": "model.prompt_source=='column'"
         },
         {
+            "name": "model_select",
+            "label": "Select model",
+            "type": "SELECT",
+            "getChoicesFromPython": true
+        },
+        {
+            "name": "model_name",
+            "label": "Model name",
+            "type": "STRING",
+            "description": "",
+            "defaultValue": "mistral",
+            "visibilityCondition": "model.model_select==None"
+        },
+        {
+            "name": "model_column",
+            "label": "Model column",
+            "type": "COLUMN",
+            "description": "",
+            "columnRole": "input_A_role",
+            "visibilityCondition": "model.model_select=='dku_column_select'"
+        },
+        {
+            "name": "image_column",
+            "label": "Image column",
+            "type": "COLUMN",
+            "description": "Must contain the URL of an image",
+            "columnRole": "input_A_role"
+        },
+        {
             "name": "display_advanced_parameters",
             "label": " ",
             "description": "Advanced parameters",
             "type": "BOOLEAN"
-        },{
+        },
+        {
             "name": "server_url",
             "label": "URL to Ollama instance",
             "type": "STRING",
             "description": "",
             "defaultValue": "http://localhost:11434",
             "visibilityCondition": "model.display_advanced_parameters"
-        },{
-            "name": "model_name",
-            "label": "Model name",
-            "type": "STRING",
-            "description": "",
-            "defaultValue": "mistral",
+        },
+        {
+            "name": "output_format",
+            "label": "Output format",
+            "type": "SELECT",
+            "selectChoices": [
+                {
+                    "label": "Not specified"
+                },
+                {
+                    "value": "json",
+                    "label": "JSON"
+                }
+            ],
             "visibilityCondition": "model.display_advanced_parameters"
         }
     ],
