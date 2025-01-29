@@ -18,7 +18,7 @@ output_A_names = get_output_names_for_role('main_output')
 config = get_recipe_config()
 prompts_df = input_A_datasets[0].get_dataframe()
 
-server_url, model_name, output_format = get_configuration(config)
+server_url, model_name_template, output_format = get_configuration(config)
 
 output = dataiku.Dataset(output_A_names[0])
 
@@ -35,6 +35,7 @@ with output.get_writer() as writer:
         else:
             prompt_template = config.get("prompt", "")
         prompt = process_template(prompt_template, row)
+        model_name = process_template(model_name_template, row)
         image = None
         if image_column:
             image_url = row.get(image_column)

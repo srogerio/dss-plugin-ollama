@@ -70,7 +70,7 @@
             "name": "model_name",
             "label": "Model name",
             "type": "STRING",
-            "description": "",
+            "description": "Model name or {{column with model name}}",
             "defaultValue": "mistral",
             "visibilityCondition": "model.model_select==None"
         },
