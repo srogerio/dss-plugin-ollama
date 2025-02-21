@@ -1,0 +1,28 @@
+[
+    {
+        "name": "ollama_host",
+        "label": "Ollama Host",
+        "type": "STRING",
+        "defaultValue": "localhost",
+        "description": "The hostname of the Ollama server."
+    },
+    {
+        "name": "ollama_port",
+        "label": "Ollama Port",
+        "type": "INT",
+        "defaultValue": 11434,
+        "description": "The port of the Ollama server."
+    },
+    {
+        "name": "model_name",
+        "label": "Model Name",
+        "type": "STRING",
+        "description": "The name of the Ollama model to use."
+    },
+    {
+        "name": "prompt",
+        "label": "Prompt",
+        "type": "TEXTAREA",
+        "description": "The prompt to send to the Ollama model."
+    }
+]
