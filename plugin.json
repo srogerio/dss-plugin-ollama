@@ -10,4 +10,6 @@
         "url": "",
         "licenseInfo": "Apache Software License"
     }
+        ,
+"installBasedOnPythonRequirementsTxt": true
 }
